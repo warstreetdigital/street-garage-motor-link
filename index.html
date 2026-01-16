@@ -9,7 +9,6 @@
 :root {
   --bg: #0f1113;
   --fg: #eaeaea;
-  --muted: rgba(234,234,234,0.65);
   --xxs: 6px;
   --xs: 12px;
   --s: 18px;
@@ -31,7 +30,7 @@ body {
   line-height: 1.55;
 }
 
-/* ===== CAPS / DASHBOARD TEXT ===== */
+/* CAPS SYSTEM */
 .caps,
 .hint,
 .location,
@@ -42,7 +41,7 @@ body {
   opacity: 0.75;
 }
 
-/* ===== MASTHEAD ===== */
+/* MASTHEAD */
 .masthead {
   text-align: center;
   padding: var(--xl) var(--m) var(--l);
@@ -62,7 +61,7 @@ body {
   line-height: 1.8;
 }
 
-/* ===== ATTENTION ANCHOR ===== */
+/* VIDEO */
 .anchor {
   padding: 0 var(--m) var(--l);
 }
@@ -74,13 +73,13 @@ body {
   border-radius: 14px;
 }
 
-/* ===== LOCATION ===== */
+/* LOCATION */
 .location {
   text-align: center;
   padding-bottom: var(--l);
 }
 
-/* ===== PRIMARY ACTIONS ===== */
+/* ACTIONS */
 .actions {
   display: flex;
   justify-content: center;
@@ -99,7 +98,7 @@ body {
   text-transform: uppercase;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .section {
   padding: var(--xl) var(--m);
 }
@@ -113,7 +112,7 @@ body {
   font-size: 1.35rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: var(--xs);
+  margin-bottom: var(--xxs);
 }
 
 .editorial p {
@@ -122,7 +121,7 @@ body {
   margin-bottom: var(--s);
 }
 
-/* ===== EDITORIAL IMAGE RAIL ===== */
+/* IMAGE RAIL */
 .images {
   display: flex;
   gap: var(--s);
@@ -135,12 +134,12 @@ body {
   cursor: pointer;
 }
 
-/* ===== EMERGENCY ===== */
+/* EMERGENCY */
 .emergency {
   background: #130f0f;
 }
 
-/* ===== CENTERED BUTTON ===== */
+/* BUTTON */
 .center {
   text-align: center;
 }
@@ -157,7 +156,7 @@ body {
   text-transform: uppercase;
 }
 
-/* ===== FULLSCREEN IMAGE VIEWER ===== */
+/* VIEWER */
 .viewer {
   position: fixed;
   inset: 0;
@@ -187,7 +186,7 @@ body {
   text-transform: uppercase;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   text-align: center;
   padding: var(--xl) var(--m);
@@ -199,28 +198,25 @@ footer {
 
 <body>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <h1>Street Garage MotorLink</h1>
   <div class="tagline caps">
-    A service-led automotive desk for sound upgrades, interior expression,
-    premium car gifting, and on-demand roadside support
+    A SERVICE-LED AUTOMOTIVE DESK FOR SOUND UPGRADES,
+    INTERIOR EXPRESSION, PREMIUM CAR GIFTING,
+    AND ON-DEMAND ROADSIDE SUPPORT
   </div>
 </header>
 
-<!-- VIDEO -->
 <section class="anchor">
   <video autoplay muted loop playsinline>
     <source src="attention.mp4" type="video/mp4">
   </video>
 </section>
 
-<!-- LOCATION -->
 <div class="location">
   Harare · By Appointment & On-Demand · Delivery Available
 </div>
 
-<!-- ACTIONS -->
 <div class="actions">
   <a href="tel:+263779388560">Call</a>
   <a href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20inquire.">Inquire</a>
@@ -230,13 +226,13 @@ footer {
 <section class="section">
   <div class="editorial">
     <h2>Sound & Audio Upgrades</h2>
-    <div class="hint">Entry-level · Mid-range · Premium builds available</div>
+    <div class="subtext">CAR AUDIO SOURCING AND CONFIGURATION</div>
     <div class="images">
-      <img src="sound-system-1.jpg" onclick="openViewer(this)">
-      <img src="sound-system-2.jpg" onclick="openViewer(this)">
-      <img src="sound-system-3.jpg" onclick="openViewer(this)">
-      <img src="sound-system-4.jpg" onclick="openViewer(this)">
-      <img src="sound-system-5.jpg" onclick="openViewer(this)">
+      <img src="sound-system-1.jpg" onclick="openViewer('Sound & Audio Upgrades')">
+      <img src="sound-system-2.jpg" onclick="openViewer('Sound & Audio Upgrades')">
+      <img src="sound-system-3.jpg" onclick="openViewer('Sound & Audio Upgrades')">
+      <img src="sound-system-4.jpg" onclick="openViewer('Sound & Audio Upgrades')">
+      <img src="sound-system-5.jpg" onclick="openViewer('Sound & Audio Upgrades')">
     </div>
   </div>
 </section>
@@ -245,11 +241,12 @@ footer {
 <section class="section">
   <div class="editorial">
     <h2>Visual & Interior Pimping</h2>
+    <div class="subtext">INTERIOR LIGHTING AND DETAIL UPGRADES</div>
     <div class="images">
-      <img src="visual-interior-1.jpg" onclick="openViewer(this)">
-      <img src="visual-interior-2.jpg" onclick="openViewer(this)">
-      <img src="visual-interior-3.jpg" onclick="openViewer(this)">
-      <img src="visual-interior-4.jpg" onclick="openViewer(this)">
+      <img src="visual-interior-1.jpg" onclick="openViewer('Visual & Interior Pimping')">
+      <img src="visual-interior-2.jpg" onclick="openViewer('Visual & Interior Pimping')">
+      <img src="visual-interior-3.jpg" onclick="openViewer('Visual & Interior Pimping')">
+      <img src="visual-interior-4.jpg" onclick="openViewer('Visual & Interior Pimping')">
     </div>
   </div>
 </section>
@@ -258,10 +255,11 @@ footer {
 <section class="section">
   <div class="editorial">
     <h2>AutoCrown™ Car Gifting</h2>
+    <div class="subtext">PREMIUM CAR GIFTING AND HANDOVER EXPERIENCES</div>
     <div class="images">
-      <img src="auto-crown-1.jpg" onclick="openViewer(this)">
-      <img src="auto-crown-2.jpg" onclick="openViewer(this)">
-      <img src="auto-crown-3.jpg" onclick="openViewer(this)">
+      <img src="auto-crown-1.jpg" onclick="openViewer('AutoCrown Car Gifting')">
+      <img src="auto-crown-2.jpg" onclick="openViewer('AutoCrown Car Gifting')">
+      <img src="auto-crown-3.jpg" onclick="openViewer('AutoCrown Car Gifting')">
     </div>
   </div>
 </section>
@@ -270,9 +268,10 @@ footer {
 <section class="section emergency">
   <div class="editorial">
     <h2>Emergency & Breakdown Support</h2>
+    <div class="subtext">FUEL, SPARES AND ESSENTIAL ROADSIDE DELIVERY</div>
     <div class="images">
-      <img src="emergency-1.jpg" onclick="openViewer(this)">
-      <img src="emergency-2.jpg" onclick="openViewer(this)">
+      <img src="emergency-1.jpg" onclick="openViewer('Emergency & Breakdown Support')">
+      <img src="emergency-2.jpg" onclick="openViewer('Emergency & Breakdown Support')">
     </div>
   </div>
 </section>
@@ -291,7 +290,6 @@ footer {
   <a class="btn" href="#">Explore Street Garage Departments</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   Powered by Shopystreet
 </footer>
@@ -307,11 +305,11 @@ footer {
 </div>
 
 <script>
-let currentImg = "";
+let currentSection = "";
 
-function openViewer(img) {
-  currentImg = img.src;
-  document.getElementById("viewerImg").src = currentImg;
+function openViewer(section) {
+  currentSection = section;
+  document.getElementById("viewerImg").src = event.target.src;
   document.getElementById("viewer").style.display = "flex";
 }
 
@@ -322,7 +320,7 @@ function closeViewer() {
 function orderImage(e) {
   e.stopPropagation();
   const msg = encodeURIComponent(
-    "Hi Street Garage MotorLink, I’m inquiring about this image: " + currentImg
+    "Hi Street Garage MotorLink, I’m inquiring about " + currentSection + "."
   );
   window.location.href = "https://wa.me/263779388560?text=" + msg;
 }
