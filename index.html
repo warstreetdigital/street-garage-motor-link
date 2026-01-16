@@ -31,8 +31,11 @@ body {
   line-height: 1.55;
 }
 
-/* ===== DASHBOARD CAPS ===== */
-.caps {
+/* ===== CAPS / DASHBOARD TEXT ===== */
+.caps,
+.hint,
+.location,
+.subtext {
   text-transform: uppercase;
   letter-spacing: 0.24em;
   font-size: 0.7rem;
@@ -54,15 +57,13 @@ body {
 
 .tagline {
   margin-top: var(--s);
-  max-width: 58ch;
+  max-width: 60ch;
   margin-inline: auto;
-  font-size: 0.8rem;
   line-height: 1.8;
 }
 
 /* ===== ATTENTION ANCHOR ===== */
 .anchor {
-  position: relative;
   padding: 0 var(--m) var(--l);
 }
 
@@ -121,14 +122,7 @@ body {
   margin-bottom: var(--s);
 }
 
-.hint {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
-/* ===== IMAGE RAIL ===== */
+/* ===== EDITORIAL IMAGE RAIL ===== */
 .images {
   display: flex;
   gap: var(--s);
@@ -141,7 +135,29 @@ body {
   cursor: pointer;
 }
 
-/* ===== FULLSCREEN VIEW ===== */
+/* ===== EMERGENCY ===== */
+.emergency {
+  background: #130f0f;
+}
+
+/* ===== CENTERED BUTTON ===== */
+.center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: var(--fg);
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ===== FULLSCREEN IMAGE VIEWER ===== */
 .viewer {
   position: fixed;
   inset: 0;
@@ -183,33 +199,38 @@ footer {
 
 <body>
 
+<!-- MASTHEAD -->
 <header class="masthead">
   <h1>Street Garage MotorLink</h1>
   <div class="tagline caps">
-    A SERVICE-LED AUTOMOTIVE DESK FOR SOUND UPGRADES,
-    INTERIOR EXPRESSION, PREMIUM CAR GIFTING,
-    AND ON-DEMAND ROADSIDE SUPPORT
+    A service-led automotive desk for sound upgrades, interior expression,
+    premium car gifting, and on-demand roadside support
   </div>
 </header>
 
+<!-- VIDEO -->
 <section class="anchor">
   <video autoplay muted loop playsinline>
     <source src="attention.mp4" type="video/mp4">
   </video>
 </section>
 
-<div class="location caps">
+<!-- LOCATION -->
+<div class="location">
   Harare · By Appointment & On-Demand · Delivery Available
 </div>
 
+<!-- ACTIONS -->
 <div class="actions">
   <a href="tel:+263779388560">Call</a>
   <a href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20inquire.">Inquire</a>
 </div>
 
+<!-- SOUND -->
 <section class="section">
   <div class="editorial">
     <h2>Sound & Audio Upgrades</h2>
+    <div class="hint">Entry-level · Mid-range · Premium builds available</div>
     <div class="images">
       <img src="sound-system-1.jpg" onclick="openViewer(this)">
       <img src="sound-system-2.jpg" onclick="openViewer(this)">
@@ -220,20 +241,70 @@ footer {
   </div>
 </section>
 
-<div class="viewer" id="viewer" onclick="closeViewer()">
-  <div>
-    <img id="viewerImg">
-    <div style="text-align:center">
-      <button class="inquire" onclick="orderImage(event)">
-        Inquire This
-      </button>
+<!-- VISUAL -->
+<section class="section">
+  <div class="editorial">
+    <h2>Visual & Interior Pimping</h2>
+    <div class="images">
+      <img src="visual-interior-1.jpg" onclick="openViewer(this)">
+      <img src="visual-interior-2.jpg" onclick="openViewer(this)">
+      <img src="visual-interior-3.jpg" onclick="openViewer(this)">
+      <img src="visual-interior-4.jpg" onclick="openViewer(this)">
     </div>
   </div>
-</div>
+</section>
 
+<!-- AUTOCROWN -->
+<section class="section">
+  <div class="editorial">
+    <h2>AutoCrown™ Car Gifting</h2>
+    <div class="images">
+      <img src="auto-crown-1.jpg" onclick="openViewer(this)">
+      <img src="auto-crown-2.jpg" onclick="openViewer(this)">
+      <img src="auto-crown-3.jpg" onclick="openViewer(this)">
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="section emergency">
+  <div class="editorial">
+    <h2>Emergency & Breakdown Support</h2>
+    <div class="images">
+      <img src="emergency-1.jpg" onclick="openViewer(this)">
+      <img src="emergency-2.jpg" onclick="openViewer(this)">
+    </div>
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section class="section center">
+  <p class="subtext">Have a reference or style in mind?</p>
+  <a class="btn"
+     href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20share%20a%20reference.">
+    Upload a Reference
+  </a>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section center">
+  <a class="btn" href="#">Explore Street Garage Departments</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
   Powered by Shopystreet
 </footer>
+
+<!-- VIEWER -->
+<div class="viewer" id="viewer" onclick="closeViewer()">
+  <div>
+    <img id="viewerImg">
+    <div class="center">
+      <button class="inquire" onclick="orderImage(event)">Inquire This</button>
+    </div>
+  </div>
+</div>
 
 <script>
 let currentImg = "";
@@ -251,7 +322,7 @@ function closeViewer() {
 function orderImage(e) {
   e.stopPropagation();
   const msg = encodeURIComponent(
-    "Hi Street Garage MotorLink, I’m inquiring about the sound setup shown in this image: " + currentImg
+    "Hi Street Garage MotorLink, I’m inquiring about this image: " + currentImg
   );
   window.location.href = "https://wa.me/263779388560?text=" + msg;
 }
