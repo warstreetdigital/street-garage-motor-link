@@ -6,16 +6,10 @@
 <title>Street Garage MotorLink</title>
 
 <style>
-/* =========================
-   FERRARI DASHBOARD SYSTEM
-   ========================= */
-
 :root {
   --bg: #0f1113;
   --fg: #eaeaea;
   --muted: rgba(234,234,234,0.65);
-  --accent: #c10000;
-
   --xxs: 6px;
   --xs: 12px;
   --s: 18px;
@@ -37,15 +31,12 @@ body {
   line-height: 1.55;
 }
 
-/* ===== CAPS ILLUSION / DASHBOARD TYPE ===== */
-.subtext,
-.hint,
-.descriptor,
-.location {
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
+/* ===== DASHBOARD CAPS ===== */
+.caps {
   text-transform: uppercase;
-  opacity: 0.7;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  opacity: 0.75;
 }
 
 /* ===== MASTHEAD ===== */
@@ -61,13 +52,12 @@ body {
   text-transform: uppercase;
 }
 
-.masthead .tagline {
+.tagline {
   margin-top: var(--s);
-  max-width: 52ch;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 0.95rem;
-  opacity: 0.8;
+  max-width: 58ch;
+  margin-inline: auto;
+  font-size: 0.8rem;
+  line-height: 1.8;
 }
 
 /* ===== ATTENTION ANCHOR ===== */
@@ -80,22 +70,7 @@ body {
   width: 100%;
   max-height: 420px;
   object-fit: cover;
-  border-radius: 12px;
-}
-
-/* ===== AUDIO TOGGLE ===== */
-.audio-toggle {
-  position: absolute;
-  bottom: 16px;
-  right: 24px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.25);
-  color: var(--fg);
-  padding: 6px 14px;
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
+  border-radius: 14px;
 }
 
 /* ===== LOCATION ===== */
@@ -146,36 +121,50 @@ body {
   margin-bottom: var(--s);
 }
 
-/* ===== EDITORIAL IMAGE RAIL ===== */
+.hint {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ===== IMAGE RAIL ===== */
 .images {
   display: flex;
   gap: var(--s);
   overflow-x: auto;
-  padding-top: var(--s);
 }
 
 .images img {
   height: 200px;
-  border-radius: 12px;
-  flex-shrink: 0;
+  border-radius: 14px;
+  cursor: pointer;
 }
 
-/* ===== EMERGENCY ===== */
-.emergency {
-  background: #130f0f;
+/* ===== FULLSCREEN VIEW ===== */
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(18px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
-/* ===== CENTERED BUTTONS ===== */
-.center {
-  text-align: center;
+.viewer img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 16px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
+.viewer .inquire {
+  margin-top: var(--m);
+  padding: 0.9rem 1.6rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
   color: var(--fg);
   letter-spacing: 0.18em;
   font-size: 0.75rem;
@@ -194,146 +183,79 @@ footer {
 
 <body>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <h1>Street Garage MotorLink</h1>
-  <div class="descriptor">Automotive Services · Sound · Visual · Emergency</div>
-  <div class="tagline">
-    A service-led automotive desk for sound upgrades, interior expression,
-    premium car gifting, and on-demand roadside support.
+  <div class="tagline caps">
+    A SERVICE-LED AUTOMOTIVE DESK FOR SOUND UPGRADES,
+    INTERIOR EXPRESSION, PREMIUM CAR GIFTING,
+    AND ON-DEMAND ROADSIDE SUPPORT
   </div>
 </header>
 
-<!-- ATTENTION ANCHOR -->
 <section class="anchor">
   <video autoplay muted loop playsinline>
     <source src="attention.mp4" type="video/mp4">
   </video>
-
-  <button class="audio-toggle" onclick="toggleAudio()">Sound On</button>
-
-  <audio id="garageAudio" loop>
-    <source src="garage-ambient.mp3" type="audio/mpeg">
-  </audio>
 </section>
 
-<!-- LOCATION -->
-<div class="location">
+<div class="location caps">
   Harare · By Appointment & On-Demand · Delivery Available
 </div>
 
-<!-- PRIMARY ACTIONS -->
 <div class="actions">
   <a href="tel:+263779388560">Call</a>
-  <a href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20inquire.">
-    Inquire
-  </a>
+  <a href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20inquire.">Inquire</a>
 </div>
 
-<!-- SOUND -->
 <section class="section">
   <div class="editorial">
     <h2>Sound & Audio Upgrades</h2>
-    <p>
-      Sound is identity. From subtle clarity to commanding bass builds,
-      Street Garage MotorLink facilitates audio upgrades tailored to your
-      vehicle and listening style.
-    </p>
-    <div class="hint">Entry-level · Mid-range · Premium builds available</div>
     <div class="images">
-      <img src="sound-system-1.jpg">
-      <img src="sound-system-2.jpg">
-      <img src="sound-system-3.jpg">
-      <img src="sound-system-4.jpg">
-      <img src="sound-system-5.jpg">
+      <img src="sound-system-1.jpg" onclick="openViewer(this)">
+      <img src="sound-system-2.jpg" onclick="openViewer(this)">
+      <img src="sound-system-3.jpg" onclick="openViewer(this)">
+      <img src="sound-system-4.jpg" onclick="openViewer(this)">
+      <img src="sound-system-5.jpg" onclick="openViewer(this)">
     </div>
   </div>
 </section>
 
-<!-- VISUAL -->
-<section class="section">
-  <div class="editorial">
-    <h2>Visual & Interior Pimping</h2>
-    <p>
-      Interior upgrades shape how a car feels from the driver’s seat.
-      Lighting, textures, and detail work are curated with restraint and intent.
-    </p>
-    <div class="hint">Configurations vary by vehicle and finish</div>
-    <div class="images">
-      <img src="visual-interior-1.jpg">
-      <img src="visual-interior-2.jpg">
-      <img src="visual-interior-3.jpg">
-      <img src="visual-interior-4.jpg">
+<div class="viewer" id="viewer" onclick="closeViewer()">
+  <div>
+    <img id="viewerImg">
+    <div style="text-align:center">
+      <button class="inquire" onclick="orderImage(event)">
+        Inquire This
+      </button>
     </div>
   </div>
-</section>
+</div>
 
-<!-- AUTOCROWN -->
-<section class="section">
-  <div class="editorial">
-    <h2>AutoCrown™ Car Gifting</h2>
-    <p>
-      AutoCrown™ facilitates premium car gifting experiences — whether through
-      partnered car sellers or as a standalone reveal and handover service.
-    </p>
-    <p>
-      Includes presentation, coordination, and digital memory experiences
-      wrapped the WarStreet way.
-    </p>
-    <div class="images">
-      <img src="auto-crown-1.jpg">
-      <img src="auto-crown-2.jpg">
-      <img src="auto-crown-3.jpg">
-    </div>
-  </div>
-</section>
-
-<!-- EMERGENCY -->
-<section class="section emergency">
-  <div class="editorial">
-    <h2>Emergency & Breakdown Support</h2>
-    <p>
-      We deliver what helps you move again — spare wheels, fuel,
-      and essential roadside items on request.
-    </p>
-    <div class="hint">Delivery and requested items are chargeable</div>
-    <div class="images">
-      <img src="emergency-1.jpg">
-      <img src="emergency-2.jpg">
-    </div>
-  </div>
-</section>
-
-<!-- UPLOAD -->
-<section class="section center">
-  <p class="subtext">
-    Have a reference, style, or idea in mind?
-  </p>
-  <a class="btn"
-     href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20share%20a%20reference.">
-    Upload a Reference
-  </a>
-</section>
-
-<!-- DEPARTMENTS -->
-<section class="section center">
-  <a class="btn" href="#">
-    Explore Street Garage Departments
-  </a>
-</section>
-
-<!-- FOOTER -->
 <footer>
   Powered by Shopystreet
 </footer>
 
 <script>
-function toggleAudio() {
-  const audio = document.getElementById("garageAudio");
-  audio.volume = 0.15;
-  audio.paused ? audio.play() : audio.pause();
+let currentImg = "";
+
+function openViewer(img) {
+  currentImg = img.src;
+  document.getElementById("viewerImg").src = currentImg;
+  document.getElementById("viewer").style.display = "flex";
+}
+
+function closeViewer() {
+  document.getElementById("viewer").style.display = "none";
+}
+
+function orderImage(e) {
+  e.stopPropagation();
+  const msg = encodeURIComponent(
+    "Hi Street Garage MotorLink, I’m inquiring about the sound setup shown in this image: " + currentImg
+  );
+  window.location.href = "https://wa.me/263779388560?text=" + msg;
 }
 </script>
 
 </body>
-  </html>
+</html>
