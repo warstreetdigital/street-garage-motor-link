@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Street Garage MotorLink</title>
+
+<style>
+/* =========================
+   FERRARI DASHBOARD SYSTEM
+   ========================= */
+
+:root {
+  --bg: #0f1113;
+  --fg: #eaeaea;
+  --muted: rgba(234,234,234,0.65);
+  --accent: #c10000;
+
+  --xxs: 6px;
+  --xs: 12px;
+  --s: 18px;
+  --m: 28px;
+  --l: 44px;
+  --xl: 72px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.55;
+}
+
+/* ===== CAPS ILLUSION / DASHBOARD TYPE ===== */
+.subtext,
+.hint,
+.descriptor,
+.location {
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ===== MASTHEAD ===== */
+.masthead {
+  text-align: center;
+  padding: var(--xl) var(--m) var(--l);
+}
+
+.masthead h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.masthead .tagline {
+  margin-top: var(--s);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ===== ATTENTION ANCHOR ===== */
+.anchor {
+  position: relative;
+  padding: 0 var(--m) var(--l);
+}
+
+.anchor video {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ===== AUDIO TOGGLE ===== */
+.audio-toggle {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--fg);
+  padding: 6px 14px;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ===== LOCATION ===== */
+.location {
+  text-align: center;
+  padding-bottom: var(--l);
+}
+
+/* ===== PRIMARY ACTIONS ===== */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--s);
+  padding-bottom: var(--xl);
+}
+
+.actions a {
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: var(--fg);
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: var(--xl) var(--m);
+}
+
+.editorial {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.editorial h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: var(--xs);
+}
+
+.editorial p {
+  max-width: 62ch;
+  font-size: 0.95rem;
+  margin-bottom: var(--s);
+}
+
+/* ===== EDITORIAL IMAGE RAIL ===== */
+.images {
+  display: flex;
+  gap: var(--s);
+  overflow-x: auto;
+  padding-top: var(--s);
+}
+
+.images img {
+  height: 200px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* ===== EMERGENCY ===== */
+.emergency {
+  background: #130f0f;
+}
+
+/* ===== CENTERED BUTTONS ===== */
+.center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-decoration: none;
+  color: var(--fg);
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: var(--xl) var(--m);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <h1>Street Garage MotorLink</h1>
+  <div class="descriptor">Automotive Services · Sound · Visual · Emergency</div>
+  <div class="tagline">
+    A service-led automotive desk for sound upgrades, interior expression,
+    premium car gifting, and on-demand roadside support.
+  </div>
+</header>
+
+<!-- ATTENTION ANCHOR -->
+<section class="anchor">
+  <video autoplay muted loop playsinline>
+    <source src="attention.mp4" type="video/mp4">
+  </video>
+
+  <button class="audio-toggle" onclick="toggleAudio()">Sound On</button>
+
+  <audio id="garageAudio" loop>
+    <source src="garage-ambient.mp3" type="audio/mpeg">
+  </audio>
+</section>
+
+<!-- LOCATION -->
+<div class="location">
+  Harare · By Appointment & On-Demand · Delivery Available
+</div>
+
+<!-- PRIMARY ACTIONS -->
+<div class="actions">
+  <a href="tel:+263779388560">Call</a>
+  <a href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20inquire.">
+    Inquire
+  </a>
+</div>
+
+<!-- SOUND -->
+<section class="section">
+  <div class="editorial">
+    <h2>Sound & Audio Upgrades</h2>
+    <p>
+      Sound is identity. From subtle clarity to commanding bass builds,
+      Street Garage MotorLink facilitates audio upgrades tailored to your
+      vehicle and listening style.
+    </p>
+    <div class="hint">Entry-level · Mid-range · Premium builds available</div>
+    <div class="images">
+      <img src="sound-system-1.jpg">
+      <img src="sound-system-2.jpg">
+      <img src="sound-system-3.jpg">
+      <img src="sound-system-4.jpg">
+      <img src="sound-system-5.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL -->
+<section class="section">
+  <div class="editorial">
+    <h2>Visual & Interior Pimping</h2>
+    <p>
+      Interior upgrades shape how a car feels from the driver’s seat.
+      Lighting, textures, and detail work are curated with restraint and intent.
+    </p>
+    <div class="hint">Configurations vary by vehicle and finish</div>
+    <div class="images">
+      <img src="visual-interior-1.jpg">
+      <img src="visual-interior-2.jpg">
+      <img src="visual-interior-3.jpg">
+      <img src="visual-interior-4.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- AUTOCROWN -->
+<section class="section">
+  <div class="editorial">
+    <h2>AutoCrown™ Car Gifting</h2>
+    <p>
+      AutoCrown™ facilitates premium car gifting experiences — whether through
+      partnered car sellers or as a standalone reveal and handover service.
+    </p>
+    <p>
+      Includes presentation, coordination, and digital memory experiences
+      wrapped the WarStreet way.
+    </p>
+    <div class="images">
+      <img src="auto-crown-1.jpg">
+      <img src="auto-crown-2.jpg">
+      <img src="auto-crown-3.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="section emergency">
+  <div class="editorial">
+    <h2>Emergency & Breakdown Support</h2>
+    <p>
+      We deliver what helps you move again — spare wheels, fuel,
+      and essential roadside items on request.
+    </p>
+    <div class="hint">Delivery and requested items are chargeable</div>
+    <div class="images">
+      <img src="emergency-1.jpg">
+      <img src="emergency-2.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section class="section center">
+  <p class="subtext">
+    Have a reference, style, or idea in mind?
+  </p>
+  <a class="btn"
+     href="https://wa.me/263779388560?text=Hi%20Street%20Garage%20MotorLink,%20I’d%20like%20to%20share%20a%20reference.">
+    Upload a Reference
+  </a>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section center">
+  <a class="btn" href="#">
+    Explore Street Garage Departments
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Powered by Shopystreet
+</footer>
+
+<script>
+function toggleAudio() {
+  const audio = document.getElementById("garageAudio");
+  audio.volume = 0.15;
+  audio.paused ? audio.play() : audio.pause();
+}
+</script>
+
+</body>
+  </html>
